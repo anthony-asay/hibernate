@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 21, 2016 10:26:58 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="criticfi_mydatos.User" table="user" catalog="criticfi_mydatos" optimistic-lock="version">
+        <id name="idUser" type="java.lang.Integer">
+            <column name="id_user" />
+            <generator class="identity" />
+        </id>
+        <property name="nameUser" type="string">
+            <column name="name_user" length="50" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="30" not-null="true" />
+        </property>
+        <property name="dateCreated" type="timestamp">
+            <column name="date_created" length="19" not-null="true" />
+        </property>
+        <property name="dateBirth" type="date">
+            <column name="date_birth" length="10" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="100" not-null="true" />
+        </property>
+        <property name="idFb" type="java.lang.Integer">
+            <column name="id_fb" />
+        </property>
+        <property name="idTw" type="java.lang.Integer">
+            <column name="id_tw" />
+        </property>
+        <property name="slug" type="string">
+            <column name="slug" length="128" not-null="true" />
+        </property>
+        <set name="reviews" table="review" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user" not-null="true" />
+            </key>
+            <one-to-many class="criticfi_mydatos.Review" />
+        </set>
+    </class>
+</hibernate-mapping>

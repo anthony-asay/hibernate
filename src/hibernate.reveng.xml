@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="criticfi_mydatos"/>
+  <table-filter match-name="item"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="genre"/>
+  <table-filter match-name="review"/>
+  <table-filter match-name="medium"/>
+  <table-filter match-name="author"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 21, 2016 10:26:58 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="criticfi_mydatos.Item" table="item" catalog="criticfi_mydatos" optimistic-lock="version">
+        <id name="idItem" type="java.lang.Integer">
+            <column name="id_item" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="medium" class="criticfi_mydatos.Medium" fetch="select">
+            <column name="id_medium" not-null="true" />
+        </many-to-one>
+        <property name="idAuthor" type="java.lang.Integer">
+            <column name="id_author" />
+        </property>
+        <property name="dateReleased" type="date">
+            <column name="date_released" length="10" not-null="true" />
+        </property>
+        <property name="nameItem" type="string">
+            <column name="name_item" not-null="true" />
+        </property>
+        <property name="rating" type="big_decimal">
+            <column name="rating" precision="10" scale="1" not-null="true" />
+        </property>
+        <property name="synopsis" type="string">
+            <column name="synopsis" />
+        </property>
+        <property name="slug" type="string">
+            <column name="slug" length="128" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

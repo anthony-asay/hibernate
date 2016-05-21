@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 21, 2016 10:26:58 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="criticfi_mydatos.Review" table="review" catalog="criticfi_mydatos" optimistic-lock="version">
+        <id name="idReview" type="java.lang.Integer">
+            <column name="id_review" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="criticfi_mydatos.User" fetch="select">
+            <column name="id_user" not-null="true" />
+        </many-to-one>
+        <property name="idItem" type="int">
+            <column name="id_item" not-null="true" />
+        </property>
+        <property name="dateCreated" type="timestamp">
+            <column name="date_created" length="19" not-null="true" />
+        </property>
+        <property name="rating" type="big_decimal">
+            <column name="rating" precision="10" scale="1" not-null="true" />
+        </property>
+        <property name="review" type="string">
+            <column name="review" length="65535" not-null="true" />
+        </property>
+        <property name="slug" type="string">
+            <column name="slug" length="128" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

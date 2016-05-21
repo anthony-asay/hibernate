@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 21, 2016 10:26:58 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="criticfi_mydatos.Medium" table="medium" catalog="criticfi_mydatos" optimistic-lock="version">
+        <id name="idMedium" type="java.lang.Integer">
+            <column name="id_medium" />
+            <generator class="identity" />
+        </id>
+        <property name="typeMedium" type="string">
+            <column name="type_medium" length="30" />
+        </property>
+        <set name="genres" table="genre" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_medium" />
+            </key>
+            <one-to-many class="criticfi_mydatos.Genre" />
+        </set>
+        <set name="items" table="item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_medium" not-null="true" />
+            </key>
+            <one-to-many class="criticfi_mydatos.Item" />
+        </set>
+    </class>
+</hibernate-mapping>
